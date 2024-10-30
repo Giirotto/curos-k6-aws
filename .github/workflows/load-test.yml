@@ -1,5 +1,7 @@
 name: K6 load teste
 on: [push]
+permissions:
+  contents: write
 jobs:
   k6-load-test:
     runs-on: ubuntu-latest
@@ -20,3 +22,10 @@ jobs:
         with:
           name: k6-report
           path: report
+
+      - name: Publish k6 report
+        uses: peaceiris/actions-gh-pages@v
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          puvlish_dir: report
