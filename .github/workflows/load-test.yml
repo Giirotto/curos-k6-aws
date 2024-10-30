@@ -1,7 +1,7 @@
 name: K6 load teste
 on: [push]
 jobs:
-  K6 load test:
+  k6-load-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
